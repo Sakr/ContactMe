@@ -1,6 +1,7 @@
 package fr.esiea.web.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -57,4 +58,40 @@ public class ContactManager implements ContactService{
 		}
 		return listContactBean;
 	}
+	
+	@Override
+	public List<ContactBean> findByCriteria(String firstName, String lastName, Date dateOfBirth, String mailContact,Boolean actif) {
+		
+		List<ContactBean> listContactBean=new ArrayList<ContactBean>();
+		Map<Integer,ContactBean>contactMap=dataStoreSingleton.getContactBeanMap();
+		ContactBean contactBean;
+		for (Integer mapKey : contactMap.keySet()) {
+			contactBean=contactMap.get(mapKey);
+			if(firstName!=null && !firstName.equals("")){
+				if(contactBean.getFirstNameContact().equalsIgnoreCase(firstName)){
+					if(lastName!=null && !lastName.equals("")){
+						if(contactBean.getSecondNameContact().equalsIgnoreCase(lastName)){
+							listContactBean.add(contactBean);
+						}
+					}else{
+						listContactBean.add(contactBean);
+					}
+					
+				}	
+			}else{
+				if(lastName!=null && !lastName.equals("")){
+					if(contactBean.getSecondNameContact().equalsIgnoreCase(lastName)){
+						listContactBean.add(contactBean);
+					}
+				}else{
+					listContactBean.add(contactBean);
+				}
+			}
+			
+		}
+		return listContactBean;
+		
+	}
+	
+	
 }

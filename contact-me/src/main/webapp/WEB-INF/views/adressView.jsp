@@ -2,22 +2,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<script type="text/javascript">
-	//paramétres  supplémentaires pour les tableaux
-	otableOptionsList[0] = {
-        "bDeferRender": true,
-        "bAutoWidth": false, 
-        "bSort": false,
-        "sAjaxSource": "<c:url value="/getDataListContact" />",
-        "fnDrawCallback": function( oSettings ) {
-        	if ( typeof oTable != 'undefined' ) {
-        		centerCheckboxes();
-    			processPopins();
-        	}	
-		}
-	};
-
-</script>
 <!-- URL For search Block -->
 <c:url value="/search" var="searchURL" />
 <c:url value="/reset" var="resetURL" />
@@ -143,6 +127,18 @@
 		</tr>
 	</tfoot>
 	<tbody>
-		<%-- Chargement des données via un appel AJAX --%>
+		<c:forEach items="${adressList}" var="adress"  varStatus="status">
+			<tr>
+				<td headers="entete_1">${adress.numberAdress}</td>
+				<td headers="entete_2">${adress.streetNameAdress}</td> 
+				<td headers="entete_3">${adress.codeAdess}</td>
+				<td headers="entete_4">${adress.cityAdress}</td>
+				<td headers="entete_5">${adress.shipping}</td>
+				<td headers="entete_6">${adress.billing}</td>
+				<td headers="entete_7" style="text-align: center;"><a href="/delete?index=${status.index}"><img src="resources/images/trash-icon.png"><span title="Supprimer le contact"></span></a></td>
+				<td headers="entete_8" style="text-align: center;"><a href="/change?index=${status.index}"><img src="resources/images/picture-settings-icon.png"><span title="Modifier le contact"></span></a></td>
+				<td headers="entete_9" style="text-align: center;"><a href="/consult?index=${status.index}"><img src="resources/images/Search-icon.png"><span title="Consulter le contact"></span></a></td>
+			</tr>			
+		</c:forEach>
 	</tbody>
 </table>

@@ -29,7 +29,7 @@
 		</p>
 		<p>
 			<label for="dateBirthContact"><spring:message code="listContact.dateBirth"/> </label>
-			<form:input path="dateBirthContact" id="idDateBirthContact" class="w16em dateformat-d-sl-m-sl-Y show-weeks no-animation opacity-99 disable-drag"
+			<form:input path="dateBirthContact" id="idDateBirthContactAdd" class="w16em dateformat-d-sl-m-sl-Y show-weeks no-animation opacity-99 disable-drag"
 						maxlength="10" onchange="javascript:isDate(this.value)"/>
 		</p>
 		<p>

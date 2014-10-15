@@ -15,7 +15,7 @@ public class ContactFormBean implements Serializable{
 	
 	private String firstNameContact;
 	private String secondNameContact;
-	private Date dateBirthContact;
+	private String dateBirthContact;
 	private String mailContact;
 	private boolean activeContact;
 	
@@ -31,10 +31,10 @@ public class ContactFormBean implements Serializable{
 	public void setSecondNameContact(String secondNameContact) {
 		this.secondNameContact = secondNameContact;
 	}
-	public Date getDateBirthContact() {
+	public String getDateBirthContact() {
 		return dateBirthContact;
 	}
-	public void setDateBirthContact(Date dateBirthContact) {
+	public void setDateBirthContact(String dateBirthContact) {
 		this.dateBirthContact = dateBirthContact;
 	}
 	public boolean getActiveContact() {

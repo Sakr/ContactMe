@@ -19,7 +19,6 @@ import fr.esiea.web.bean.ContactBean;
 import fr.esiea.web.bean.ContactFormBean;
 import fr.esiea.web.model.DataStoreSingleton;
 import fr.esiea.web.model.InitDataTest;
-import fr.esiea.web.service.ContactService;
 import fr.esiea.web.service.impl.ContactManager;
 
 
