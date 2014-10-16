@@ -23,12 +23,9 @@
 			<tiles:insertAttribute name="header" />
 		</div>
 		<!-- fin #header -->
-
+		<tiles:insertAttribute name="top"/>
 		<div id="centre">
-<!-- 			<div id="sous_navigation"> -->
-<%-- 				<tiles:insertAttribute name="menu" /> --%>
-<!-- 			</div> -->
-			<!-- fin #sous_navigation -->
+		
 			<div id="contenu_onglets">
 				
 				<tiles:insertAttribute name="content" />
