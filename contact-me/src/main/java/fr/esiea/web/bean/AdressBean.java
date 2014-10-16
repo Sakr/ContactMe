@@ -1,6 +1,14 @@
 package fr.esiea.web.bean;
 
-public class AdressBean {
+import java.io.Serializable;
+
+public class AdressBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1610296136502440248L;
+	
+	
 	private int idAdress;
 	private int numberAdress;
 	private String streetNameAdress;
@@ -22,6 +30,8 @@ public class AdressBean {
 		this.idContactAdress = idContactAdress;
 		this.shippingAdress = shippingAdress;
 		this.billingAdress = billingAdress;
+	}
+	public AdressBean() {
 	}
 	public int getIdContactAdress() {
 		return idContactAdress;
@@ -59,13 +69,13 @@ public class AdressBean {
 	public void setCityAdress(String cityAdress) {
 		this.cityAdress = cityAdress;
 	}
-	public boolean isShippingAdress() {
+	public boolean getShippingAdress() {
 		return shippingAdress;
 	}
 	public void setShippingAdress(boolean shippingAdress) {
 		this.shippingAdress = shippingAdress;
 	}
-	public boolean isBillingAdress() {
+	public boolean getBillingAdress() {
 		return billingAdress;
 	}
 	public void setBillingAdress(boolean billingAdress) {

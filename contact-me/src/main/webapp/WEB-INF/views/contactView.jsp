@@ -2,7 +2,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
 <!-- URL For search Block -->
 <c:url value="/search" var="searchURL" />
 <c:url value="/reset" var="resetURL" />
@@ -134,9 +133,9 @@
 				<td headers="entete_3">${contact.dateBirthContact}</td>
 				<td headers="entete_4">${contact.mailContact}</td>
 				<td headers="entete_5">${contact.activeContact}</td>
-				<td headers="entete_6" style="text-align: center;"><a href="/delete?index=${status.index}"><img src="resources/images/trash-icon.png"><span title="Supprimer le contact"></span></a></td>
-				<td headers="entete_7" style="text-align: center;"><a href="/change?index=${status.index}"><img src="resources/images/picture-settings-icon.png"><span title="Modifier le contact"></span></a></td>
-				<td headers="entete_8" style="text-align: center;"><a href="/consult?index=${status.index}"><img src="resources/images/Search-icon.png"><span title="Consulter le contact"></span></a></td>
+				<td headers="entete_6" style="text-align: center;"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/trash-icon.png"><span title="Supprimer le contact"></span></a></td>
+				<td headers="entete_7" style="text-align: center;"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/picture-settings-icon.png"><span title="Modifier le contact"></span></a></td>
+				<td headers="entete_8" style="text-align: center;"><a href="/consult?index=${status.index}" ><img src="resources/images/Search-icon.png"><span title="Consulter le contact"></span></a></td>
 			</tr>			
 		</c:forEach>
 		

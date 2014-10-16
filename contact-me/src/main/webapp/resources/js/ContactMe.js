@@ -415,8 +415,8 @@ function doGet(url) {
  */
 function processPopins() {
 	$("a.iframe").fancybox({					
-		'width' : 990,
-		'height' : 600,
+		'width' : 500,
+		'height' : 500,
 		'padding' : 0,
 		'margin' : 0,					
 		'hideOnContentClick': false,

@@ -56,6 +56,12 @@
         <beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <beans:property name="paramName" value="locale" />
         </beans:bean>
+         <beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+                <beans:property name="cacheSeconds" value="0"/>
+                <beans:property name="useExpiresHeader" value="true"/>
+                <beans:property name="useCacheControlHeader" value="true"/>
+                <beans:property name="useCacheControlNoStore" value="true"/>
+            </beans:bean>
     </interceptors>
 	
 	<context:component-scan base-package="fr.esiea.web.controller" />
@@ -67,12 +73,6 @@
 	<!-- Gestion du cache navigateur -->
 	<!-- Modification du HTTP headers permettant de désactiver le cache du navigateur afin 
 		de permettre l'utilisation des boutons precedent / suivant du navigateur -->
-	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <beans:property name="cacheSeconds" value="0" />
-        <beans:property name="useExpiresHeader" value="false" />
-        <beans:property name="useCacheControlHeader" value="false" />
-        <beans:property name="useCacheControlNoStore" value="false" />
-    </beans:bean>
 	
 	
 </beans:beans>

@@ -46,15 +46,22 @@ public class InitDataTest {
 	
 	private static void initAdressData(DataStoreSingleton dataStoreSingleton){
 		
-		AdressBean adressBean_1=new AdressBean(1, 72, "Avenue Maurice Thorez", 94200, "Vanves", 1,true,false);
+		AdressBean adressBean_1=new AdressBean(1, 72, "Avenue Maurice Thorez", 94200, "Ivry-Sur-Seine", 1,true,false);
 		AdressBean adressBean_2=new AdressBean(2, 27, "Rue Jean Bleuzen", 92170, "Vanves", 2,true,false);
 		AdressBean adressBean_3=new AdressBean(3, 29, "Rue Jean Bleuzen", 92170, "Vanves", 3,true,false);
 		AdressBean adressBean_4=new AdressBean(4, 8, "Rue Abou Oubayda Takafi", 1057, "Gammarth", 3,true,false);
 		
+		//On ajoute les adresses sur la map du contact
 		dataStoreSingleton.getAdressBeanMap().put(adressBean_1.getIdAdress(), adressBean_1);
+		dataStoreSingleton.getContactBeanMap().get(adressBean_1.getIdContactAdress()).getMapAdressBean().put(adressBean_1.getIdAdress(), adressBean_1);
 		dataStoreSingleton.getAdressBeanMap().put(adressBean_2.getIdAdress(), adressBean_2);
+		dataStoreSingleton.getContactBeanMap().get(adressBean_2.getIdContactAdress()).getMapAdressBean().put(adressBean_2.getIdAdress(), adressBean_2);
 		dataStoreSingleton.getAdressBeanMap().put(adressBean_3.getIdAdress(), adressBean_3);
+		dataStoreSingleton.getContactBeanMap().get(adressBean_3.getIdContactAdress()).getMapAdressBean().put(adressBean_3.getIdAdress(), adressBean_3);
 		dataStoreSingleton.getAdressBeanMap().put(adressBean_4.getIdAdress(), adressBean_4);
+		dataStoreSingleton.getContactBeanMap().get(adressBean_4.getIdContactAdress()).getMapAdressBean().put(adressBean_4.getIdAdress(), adressBean_4);
+		
+		
 	}
 	
 }

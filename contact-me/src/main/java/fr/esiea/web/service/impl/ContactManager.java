@@ -2,9 +2,11 @@ package fr.esiea.web.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import fr.esiea.web.bean.AdressBean;
 import fr.esiea.web.bean.ContactBean;
 import fr.esiea.web.model.DataStoreSingleton;
 import fr.esiea.web.service.ContactService;
@@ -27,6 +29,7 @@ public class ContactManager implements ContactService{
 	public void createContact(ContactBean contactBean) {
 		int idContact=dataStoreSingleton.getAdressBeanMap().size();
 		contactBean.setIdContact(idContact);
+		contactBean.setMapAdressBean(new HashMap<Integer,AdressBean>());
 		dataStoreSingleton.getContactBeanMap().put(idContact, contactBean);
 	}
 

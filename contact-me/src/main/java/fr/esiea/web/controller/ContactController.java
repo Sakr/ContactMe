@@ -18,17 +18,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.appengine.repackaged.com.google.protobuf.ServiceException;
 
+import fr.esiea.web.bean.AdressBean;
 import fr.esiea.web.bean.AdressFormBean;
 import fr.esiea.web.bean.ContactBean;
 import fr.esiea.web.bean.ContactFormBean;
 import fr.esiea.web.model.DataStoreSingleton;
+import fr.esiea.web.service.impl.AdressManager;
 import fr.esiea.web.service.impl.ContactManager;
 
 @Controller
-@SessionAttributes({"contactFormBean","adressFormBean","contactList","index"})
+@SessionAttributes({"contactFormBean","adressFormBean","contactList","index","adressList"})
 public class ContactController {
 	
 	private ContactManager contactManager;
+	private AdressManager adressManager;
+	
 	private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
 	@RequestMapping("/start")
 	public ModelAndView start(ModelMap model) throws ServiceException{
@@ -69,10 +73,12 @@ public class ContactController {
 	
 	@RequestMapping("/reset")
 	public ModelAndView reset(ModelMap model) throws ServiceException{
-		//viewContactList
 		ModelAndView mav = new ModelAndView("viewContactList");
 		ContactFormBean contactFormBean=new ContactFormBean();
 		model.addAttribute("contactFormBean", contactFormBean);
+		contactManager=new ContactManager(DataStoreSingleton.getInstance());
+		List<ContactBean> listContactBean=contactManager.findAll();
+		model.addAttribute("contactList", listContactBean);
 		mav.addObject(model);
 		return mav;
 	}
@@ -130,6 +136,7 @@ public class ContactController {
 			@ModelAttribute("contactList") List<ContactBean> listContactBean) throws ServiceException{
 		ModelAndView mav = new ModelAndView("viewContactList");
 		ContactFormBean contactFormBean=new ContactFormBean();
+		contactManager=new ContactManager(DataStoreSingleton.getInstance());
 		listContactBean=contactManager.findAll();
 		model.addAttribute("contactList", listContactBean);
 		model.addAttribute("contactFormBean", contactFormBean);
@@ -156,6 +163,8 @@ public class ContactController {
 		contactFormBean.setDateBirthContact(dateString);
 		contactFormBean.setMailContact(contact.getMailContact());
 		contactFormBean.setActiveContact(contact.getActiveContact());
+		
+		model.addAttribute("contactList", listContactBean);
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("index", index);
 		mav.addObject(model);
@@ -170,7 +179,8 @@ public class ContactController {
 		
 		ModelAndView mav = new ModelAndView("viewDetails");
 		ContactFormBean contactFormBean=new ContactFormBean();
-		ContactBean contact=DataStoreSingleton.getInstance().getContactBeanMap().get(listContactBean.get(index).getIdContact());
+		contactManager=new ContactManager(DataStoreSingleton.getInstance());
+		ContactBean contact=contactManager.readContact(listContactBean.get(index).getIdContact());
 		contactFormBean.setFirstNameContact(contact.getFirstNameContact());
 		contactFormBean.setSecondNameContact(contact.getSecondNameContact());
 		Format formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -178,10 +188,21 @@ public class ContactController {
 		contactFormBean.setDateBirthContact(dateString);
 		contactFormBean.setMailContact(contact.getMailContact());
 		contactFormBean.setActiveContact(contact.getActiveContact());
+		
+		AdressFormBean adressFormBean=new AdressFormBean();
+		
+		//On charge laliste des adresses du contact
+		adressManager=new AdressManager(DataStoreSingleton.getInstance());
+		List<AdressBean> listAdressBean=adressManager.findAllById(contact.getIdContact());
+		model.addAttribute("contactList", listContactBean);
+		model.addAttribute("adressList", listAdressBean);
+		
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("contactList", listContactBean);
-		AdressFormBean adressFormBean=new AdressFormBean();
 		model.addAttribute("adressFormBean", adressFormBean);
+		model.addAttribute("contactList", listContactBean);
+		
+		model.addAttribute("index", index);
 		mav.addObject(model);
 		return mav;
 	}

@@ -72,13 +72,13 @@ public class AdressFormBean implements Serializable{
 	public void setIdContactAdress(int idContactAdress) {
 		this.idContactAdress = idContactAdress;
 	}
-	public boolean isAdressShipping() {
+	public boolean getAdressShipping() {
 		return adressShipping;
 	}
 	public void setAdressShipping(boolean adressShipping) {
 		this.adressShipping = adressShipping;
 	}
-	public boolean isAdressBilling() {
+	public boolean getAdressBilling() {
 		return adressBilling;
 	}
 	public void setAdressBilling(boolean adressBilling) {

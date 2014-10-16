@@ -24,4 +24,11 @@
 		<put-attribute name="content"	value="/WEB-INF/views/adressView.jsp" />
 	</definition>
 	
+	<definition name="viewChangeAdress" extends="layoutPopin">
+		<put-attribute name="content"	value="/WEB-INF/views/changeAdress.jsp" />
+	</definition>
+	
+	<definition name="viewDeleteAdress" extends="layoutPopin">
+		<put-attribute name="content"	value="/WEB-INF/views/deleteAdress.jsp" />
+	</definition>
 </tiles-definitions>

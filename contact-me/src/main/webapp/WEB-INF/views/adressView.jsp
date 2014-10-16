@@ -2,20 +2,11 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<!-- URL For search Block -->
-<c:url value="/search" var="searchURL" />
-<c:url value="/reset" var="resetURL" />
 
 <!-- URL For add Block -->
-<c:url value="/addContact" var="addURL" />
+<c:url value="/addAdress" var="addURL" />
 
-<!-- URL For contact action -->
-<c:url value="/remove" var="removeURL" />
-<c:url value="/change" var="changeURL" />
-<c:url value="/consult" var="consultURL" />
-
-<form:form method="POST" commandName="contactFormBean"
-	class="cssform_colonnes_new_width" action="${searchURL}">
+<form:form 	class="cssform_colonnes_new_width" >
 
 	<div class="colonne_gauche">
 	
@@ -42,9 +33,6 @@
 	</div>
 
 	<div class="clear"></div>
-
-	<div class="center">
-	</div>
 
 </form:form>
 
@@ -109,7 +97,6 @@
 			<th id="entete_6"><spring:message code="adress.billing"/></th>
 			<th id="entete_7"><spring:message code="listContact.remove"/></th>
 			<th id="entete_8"><spring:message code="listContact.change"/></th>
-			<th id="entete_9"><spring:message code="listContact.consult"/></th>
 		</tr>
 	</thead>
 	<tfoot>
@@ -123,7 +110,6 @@
 			<th id="entete_6"><spring:message code="adress.billing"/></th>
 			<th id="entete_7"><spring:message code="listContact.remove"/></th>
 			<th id="entete_8"><spring:message code="listContact.change"/></th>
-			<th id="entete_9"><spring:message code="listContact.consult"/></th>
 		</tr>
 	</tfoot>
 	<tbody>
@@ -133,11 +119,10 @@
 				<td headers="entete_2">${adress.streetNameAdress}</td> 
 				<td headers="entete_3">${adress.codeAdess}</td>
 				<td headers="entete_4">${adress.cityAdress}</td>
-				<td headers="entete_5">${adress.shipping}</td>
-				<td headers="entete_6">${adress.billing}</td>
-				<td headers="entete_7" style="text-align: center;"><a href="/delete?index=${status.index}"><img src="resources/images/trash-icon.png"><span title="Supprimer le contact"></span></a></td>
-				<td headers="entete_8" style="text-align: center;"><a href="/change?index=${status.index}"><img src="resources/images/picture-settings-icon.png"><span title="Modifier le contact"></span></a></td>
-				<td headers="entete_9" style="text-align: center;"><a href="/consult?index=${status.index}"><img src="resources/images/Search-icon.png"><span title="Consulter le contact"></span></a></td>
+				<td headers="entete_5">${adress.shippingAdress}</td>
+				<td headers="entete_6">${adress.billingAdress}</td>
+				<td headers="entete_7" style="text-align: center;"><a href="/deleteAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/trash-icon.png"><span title="Supprimer le contact"></span></a></td>
+				<td headers="entete_8" style="text-align: center;"><a href="/changeAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/picture-settings-icon.png"><span title="Modifier le contact"></span></a></td>
 			</tr>			
 		</c:forEach>
 	</tbody>

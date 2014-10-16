@@ -5,3 +5,19 @@ body {
 	color: #737373;
 	background: #ffffff;
 }
+
+/**** Menu de sous_navigation ****/
+
+#sous_navigation {
+    display: none;
+}
+
+/**** Contenu ****/
+
+#contenu {
+	width: 940px;
+}
+
+#contenu_onglets {
+	width: 936px;
+}

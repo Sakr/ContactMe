@@ -123,9 +123,9 @@ body {
 
 
 #contenu_popin {
-	width: 920px;
+	width: 450px;
 	float:left;
-	min-height: 500px;
+	height: 450px;
 	padding: 0px 10px 10px 10px;
 	text-align: justify;
 	border-radius: 8px;

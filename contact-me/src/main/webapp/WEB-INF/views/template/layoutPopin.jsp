@@ -12,12 +12,10 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/principal_popin.css"/>" media="screen" />
 	</head>
 	<body>
-		<div id="global">
-			<div id="centre">
-				<div id="contenu_popin">
-					<tiles:insertAttribute name="content"/>
-			    </div><!-- fin #contenu -->
-			</div><!-- fin #centre -->
-		</div><!-- fin #global -->
+		<div id="centre">
+			<div id="contenu_popin">
+				<tiles:insertAttribute name="content"/>
+		    </div><!-- fin #contenu -->
+		</div><!-- fin #centre -->
 	</body>
 </html>
