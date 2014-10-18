@@ -31,4 +31,13 @@
 	<definition name="viewDeleteAdress" extends="layoutPopin">
 		<put-attribute name="content"	value="/WEB-INF/views/deleteAdress.jsp" />
 	</definition>
+	<definition name="viewAddAdress" extends="layoutPopin">
+		<put-attribute name="content"	value="/WEB-INF/views/addAdress.jsp" />
+	</definition>
+	<definition name="viewAddContact" extends="layoutPopin">
+		<put-attribute name="content"	value="/WEB-INF/views/addContact.jsp" />
+	</definition>
+	
+	
+	
 </tiles-definitions>

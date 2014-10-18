@@ -23,7 +23,9 @@ function changeLanguage(language) {
 		  window.location.href = "?locale=fr";
 	}
 }
-
+function closePopup(){
+	parent.$.fancybox.close();
+}
 
 /**
  * cache et detruit un datatable

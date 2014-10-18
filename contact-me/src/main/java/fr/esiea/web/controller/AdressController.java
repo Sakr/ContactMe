@@ -68,6 +68,20 @@ public class AdressController {
 		return mav;
 	}
 	
+	@RequestMapping("/popupAddAdress")
+	public ModelAndView addAdressPopup(ModelMap model,
+			@ModelAttribute("adressList") List<AdressBean> listAdressBean,
+			@ModelAttribute("contactFormBean") ContactFormBean contactFormBean,
+			@ModelAttribute("adressFormBean") AdressFormBean adressFormBean) throws ServiceException{
+		ModelAndView mav = new ModelAndView("viewAddAdress");
+		
+		model.addAttribute("adressList", listAdressBean);
+		model.addAttribute("contactFormBean", contactFormBean);
+		model.addAttribute("adressFormBean", adressFormBean);
+		
+		mav.addObject(model);
+		return mav;
+	}
 	
 	@RequestMapping("/changeAdress")
 	public ModelAndView changeAdress(ModelMap model,
@@ -195,4 +209,14 @@ public class AdressController {
 		mav.addObject(model);
 		return mav;
 	}
+	@RequestMapping("/resetAddAdress")
+	public ModelAndView resetAdressAdd(ModelMap model) throws ServiceException{
+		
+		ModelAndView mav = new ModelAndView("viewDetails");
+		
+
+		mav.addObject(model);
+		return mav;
+	}
+	
 }

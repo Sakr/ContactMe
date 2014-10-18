@@ -3,9 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<!-- URL For add Block -->
-<c:url value="/addAdress" var="addURL" />
-
 <form:form 	class="cssform_colonnes_new_width" >
 
 	<div class="colonne_gauche">
@@ -36,51 +33,7 @@
 
 </form:form>
 
-<h2 class="acc_trigger acc_trigger_0">
-	<a href="#"><spring:message code="adress.add.title" /></a>
-</h2>
-<div class="acc_container">
-	<div class="block">
-		<form:form method="POST" commandName="adressFormBean" class="cssform_colonnes_new_width" action="${addURL}">
-			<div class="colonne_gauche">
-				<p>
-					<label for=numberAdress><spring:message code="adress.number"/></label>
-					<form:input path="numberAdress" id="idAdressNumber"></form:input>
-				</p>
-				<p>
-					<label for="streetNameAdress"><spring:message code="adress.streetName"/> </label>
-					<form:input path="streetNameAdress" id="idAdressStreetName" />
-				</p>
-				<p>
-					<label for="adressShipping"><spring:message code="adress.shipping"/> </label>
-					<form:checkbox id="idAdressShipping" path="adressShipping" />
-				</p>
-			</div>
-			<div class="colonne_droite">
-				<p>
-					<label for="codeAdess"><spring:message code="adress.codeAdess"/> </label>
-					<form:input path="codeAdess" id="idCodeAdess" />
-				</p>
-				<p>
-					<label for="cityAdress"><spring:message code="adress.cityAdress"/> </label>
-					<form:input path="cityAdress" id="idCityAdress" />
-				</p>
-				<p>
-					<label for="adressBilling"><spring:message code="adress.billing"/> </label>
-					<form:checkbox id="idAdressBilling" path="adressBilling" />
-				</p>
-			</div>
-
-			<div class="clear"></div>
-
-			<div class="right">
-				<input type="submit" class="submit" name="add" id="idAdd" value="<spring:message code="adress.add"/>"  /> 
-				<input type="reset" name="cancelAdd" id="idCancelAdd" class="reset" value="<spring:message code="contact.cancel"/>"/>
-					 
-			</div>
-		</form:form>
-	</div>
-</div>
+	<a href="/popupAddAdress" class="lien iframe"><img src="resources/images/add-adress.png"></a>
 
 <div class="clear"></div>
 

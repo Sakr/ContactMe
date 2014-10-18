@@ -103,7 +103,17 @@ public class ContactController {
 		mav.addObject(model);
 		return mav;
 	}
-	
+	@RequestMapping("/popupAddContact")
+	public ModelAndView addContactPopup(ModelMap model,
+			@ModelAttribute("contactList") List<ContactBean> listContactBean) throws ServiceException{
+		ModelAndView mav = new ModelAndView("viewAddContact");
+		
+		ContactFormBean contactFormBean=new ContactFormBean();
+		model.addAttribute("contactList", listContactBean);
+		model.addAttribute("contactFormBean", contactFormBean);
+		mav.addObject(model);
+		return mav;
+	}
 	@RequestMapping("/delete")
 	public ModelAndView delete(ModelMap model,
 		@RequestParam(value = "index", required = true) int index) throws ServiceException{
@@ -240,6 +250,16 @@ public class ContactController {
 		model.addAttribute("contactList", listContactBean);
 		
 		model.addAttribute("contactFormBean", contactFormBean);
+		mav.addObject(model);
+		return mav;
+	}
+	
+	@RequestMapping("/resetAddContact")
+	public ModelAndView resetContactAdd(ModelMap model) throws ServiceException{
+		
+		ModelAndView mav = new ModelAndView("viewDetails");
+		
+
 		mav.addObject(model);
 		return mav;
 	}

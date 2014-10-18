@@ -2,17 +2,9 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<!-- URL For search Block -->
+<!-- URL For search -->
 <c:url value="/search" var="searchURL" />
 <c:url value="/reset" var="resetURL" />
-
-<!-- URL For add Block -->
-<c:url value="/addContact" var="addURL" />
-
-<!-- URL For contact action -->
-<c:url value="/remove" var="removeURL" />
-<c:url value="/change" var="changeURL" />
-<c:url value="/consult" var="consultURL" />
 
 <form:form method="POST" commandName="contactFormBean" class="searchContact" action="${searchURL}">
 
@@ -39,50 +31,13 @@
 
 		
 
-<h2 class="acc_trigger acc_trigger_0">
+<!--  <h2 class="acc_trigger acc_trigger_0">
 	<a href="#"><spring:message code="contact.add.title" /></a>
 </h2>
 <div class="acc_container">
-	<div class="block">
-		<form:form method="POST" commandName="contactFormBean" class="cssform_colonnes_new_width" action="${addURL}">
-			<div class="colonne_gauche">
-				<p>
-					<label for=firstNameContact><spring:message code="listContact.firstName"/></label>
-					<form:input path="firstNameContact" id="idFirstNameContactAdd"></form:input>
-				</p>
-				<p>
-					<label for="secondNameContact"><spring:message code="listContact.secondName"/> </label>
-					<form:input path="secondNameContact" id="idSecondNameContactAdd" />
-				</p>
-				<p>
-					<label for="dateBirthContact"><spring:message code="listContact.dateBirth"/> </label>
-					<form:input path="dateBirthContact" id="idDateBirthContactAdd" class="w16em dateformat-d-sl-m-sl-Y show-weeks no-animation opacity-99 disable-drag"
-						maxlength="10" onchange="javascript:isDate(this.value)"/>
-				</p>
-			</div>
+</div>-->
 
-			<div class="colonne_droite">
-				<p>
-					<label for="mailContact"><spring:message code="listContact.mail"/> </label>
-					<form:input path="mailContact" id="idMailContactAdd" />
-				</p>
-				<p>
-					<label for="activeContact"><spring:message code="listContact.active"/> </label>
-					<form:checkbox id="idActiveContactAdd" path="activeContact" />
-				</p>
-			</div>
-
-			<div class="clear"></div>
-
-			<div class="right">
-				<input type="submit" class="submit" name="add" id="idAdd" value="<spring:message code="contact.add"/>"  /> 
-				<input type="reset" name="cancelAdd" id="idCancelAdd" class="reset" value="<spring:message code="contact.cancel"/>"/>
-					 
-			</div>
-		</form:form>
-	</div>
-</div>
-
+<a href="/popupAddContact" class="lien iframe"><img src="resources/images/add-contact.png"></a>
 <div class="clear"></div>
 
 <table id="suivi0" class="display dataTable" summary="<spring:message code="listContact.nameTable"/>">
