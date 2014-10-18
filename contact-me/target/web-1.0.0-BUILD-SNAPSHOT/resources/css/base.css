@@ -7,16 +7,18 @@
 
 /* Page */
 html {
-	font-size: 100%; /* Voir -> Note 1 � la fin de la feuille de styles. */
+	font-size: 100%; /* Voir -> Note 1la fin de la feuille de styles. */
 }
 body {
 	margin: 0;
-	padding: 10px 20px; /* Note -> 2 */
-	font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif; /* 3 */
-	font-size: .8em; /* -> 4 */
-	line-height: 1.25; /* -> 5 */
+	/*padding: 10px 20px; */
+	font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+	font-size: .8em; 
+	line-height: 1.25;
 	color: black;
 	background: white;
+	
+
 }
 
 /* Titres */
