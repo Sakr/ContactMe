@@ -53,6 +53,8 @@ public class HomeController {
 			ContactFormBean contactFormBean=new ContactFormBean();
 			model.addAttribute("contactFormBean", contactFormBean);
 			mav = new ModelAndView("viewContactList");
+		}else if(lastView.indexOf("/back")!=-1){
+			mav = new ModelAndView("index");
 		}
 		mav.addObject(model);
 		return mav;
