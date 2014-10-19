@@ -37,7 +37,9 @@
 <div class="acc_container">
 </div>-->
 
-<a href="/popupAddContact" class="lien iframe"><img src="resources/images/add-contact.png"></a>
+<a href="/popupAddContact" class="lien iframe" id="pictoAddContact"><img src="resources/images/add-contact.png" style="width:30px; height: 27px; margin-bottom:10px; margin-left:20px;"></a>
+
+
 <div class="clear"></div>
 
 <table id="suivi0" class="display dataTable" summary="<spring:message code="listContact.nameTable"/>">
@@ -48,23 +50,12 @@
 			<th id="entete_3"><spring:message code="listContact.dateBirth"/></th>
 			<th id="entete_4"><spring:message code="listContact.mail"/></th>
 			<th id="entete_5"><spring:message code="listContact.active"/></th>
-			<th id="entete_6"><spring:message code="listContact.remove"/></th>
-			<th id="entete_7"><spring:message code="listContact.change"/></th>
-			<th id="entete_8"><spring:message code="listContact.consult"/></th>
+			<th id="entete_6"><!--spring:message code="listContact.remove"/--></th>
+			<th id="entete_7"><!--spring:message code="listContact.change"/--></th>
+			<th id="entete_8"><!--spring:message code="listContact.consult"/--></th>
 		</tr>
 	</thead>
-	<tfoot>
-		<tr>
-			<th id="entete_1"><spring:message code="listContact.firstName"/></th>
-			<th id="entete_2"><spring:message code="listContact.secondName"/></th> 
-			<th id="entete_3"><spring:message code="listContact.dateBirth"/></th>
-			<th id="entete_4"><spring:message code="listContact.mail"/></th>
-			<th id="entete_5"><spring:message code="listContact.active"/></th>
-			<th id="entete_6"><spring:message code="listContact.remove"/></th>
-			<th id="entete_7"><spring:message code="listContact.change"/></th>
-			<th id="entete_8"><spring:message code="listContact.consult"/></th>
-		</tr>
-	</tfoot>
+	
 	<tbody>
 		<c:forEach items="${contactList}" var="contact"  varStatus="status">
 			<tr>
@@ -73,9 +64,9 @@
 				<td headers="entete_3">${contact.dateBirthContact}</td>
 				<td headers="entete_4">${contact.mailContact}</td>
 				<td headers="entete_5">${contact.activeContact}</td>
-				<td headers="entete_6" style="text-align: center;"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/trash-icon.png"></a></td>
-				<td headers="entete_7" style="text-align: center;"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/picture-settings-icon.png"></a></td>
-				<td headers="entete_8" style="text-align: center;"><a href="/consult?index=${status.index}" ><img src="resources/images/Search-icon.png"></a></td>
+				<td headers="entete_6"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:2Opx;"></a></td>
+				<td headers="entete_7"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:2Opx;"></a></td>
+				<td headers="entete_8"><a href="/consult?index=${status.index}" ><img src="resources/images/read.png" style="width:20px; height:2Opx;"></a></td>
 			</tr>			
 		</c:forEach>
 		

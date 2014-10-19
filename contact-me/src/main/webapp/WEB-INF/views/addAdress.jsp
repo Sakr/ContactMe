@@ -13,6 +13,7 @@
 <c:url value="/addAdress" var="addURL" />
 <c:url value="/resetAddAdress" var="resetAddAdressURL" />
 <div class="block">
+<!-- 
 		<form:form method="POST" commandName="adressFormBean" class="cssform_colonnes_new_width" action="${addURL}">
 			<div class="colonne_gauche">
 				<p>
@@ -50,4 +51,53 @@
 				<input type="reset" name="reset" id="reset" value="<spring:message code="contact.cancel" />" class="reset" onclick="javascript:doGet('${resetAddAdressURL}')" />
 			</div>
 		</form:form>
-	</div>
+		-->
+		
+		<form:form method="POST" commandName="adressFormBean" action="${addURL}" class="modifyContact">
+			
+			<spring:message code="adress.add.title" var="create"/>
+			<div class="titleModify">${create}</div>	
+
+			<div>
+				<img class ="picto" src="resources/images/name.png" />
+				<spring:message code="adress.number" var="number"/>
+				<form:input required="required" class = "inputmodify" type = "text" path="numberAdress" id="idAdressNumber" placeholder="${number}" value=""/>	
+			</div>
+			
+			<div>
+				<img class ="picto" src="resources/images/blank.png" />
+				<spring:message code="adress.streetName" var="streetName"/>
+				<form:input required="required" class = "inputmodify" type = "text"  path="streetNameAdress" id="idAdressStreetName" placeholder="${streetName}"/>			
+			</div>	
+					
+			<div>
+				<img class ="picto" src="resources/images/blank.png" />
+				<spring:message code="adress.codeAdess" var="zipCode"/>
+				<form:input required="required" class = "inputmodify" type = "text" path="codeAdess" id="idCodeAdess" placeholder="${zipCode}" value=""/>
+			</div>
+			
+			<div>
+				<img class ="picto" src="resources/images/blank.png" />
+				<spring:message code="adress.cityAdress" var="city"/>
+				<form:input required="required" class = "inputmodify" type = "text" path="cityAdress" id="idCityAdress" placeholder="${city}"/>
+			</div>
+				
+			<div>
+				<label class="labelmodify" for="adressBilling"><spring:message code="adress.billing"/> </label>
+				<form:checkbox id="idAdressBilling" path="adressBilling" />
+			</div>
+			
+			<div>
+				<label class="labelmodify" for="adressShipping"><spring:message code="adress.shipping"/> </label>
+				<form:checkbox id="idAdressShipping" path="adressShipping" />
+			</div>
+
+			<div style="margin-top:13px;">
+				<input type="submit" class="buttonmodify" name="rechercher" id="rechercher" value="<spring:message code="contact.save" />" /> 
+				<input type="reset" class="cancel"name="reset" id="reset" value="<spring:message code="contact.cancel" />" class="reset" onclick="javascript:doGet('${resetURL}')" />
+			</div>
+			
+			
+
+	</form:form>
+</div>

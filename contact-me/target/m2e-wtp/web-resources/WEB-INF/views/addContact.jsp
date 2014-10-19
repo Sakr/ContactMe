@@ -13,6 +13,8 @@
 <c:url value="/resetAddContact" var="resetAddContactURL" />
 
 <div class="block">
+
+<!--  
 	<form:form method="POST"  commandName="contactFormBean" class="cssform_colonnes_new_width" action="${addURL}">
 		<div class="colonne_gauche">
 			<p>
@@ -49,4 +51,49 @@
 				 
 		</div>
 	</form:form>
+	-->
+	
+		<form:form method="POST"  commandName="contactFormBean" action="${addURL}" class="modifyContact">
+			
+			<spring:message code="contact.add.title" var="create"/>
+			<div class="titleModify">${create}</div>	
+
+			<div>
+				<img class ="picto" src="resources/images/name.png" />
+				<spring:message code="listContact.firstName" var="firstname"/>
+				<form:input required="required" class = "inputmodify" type = "text" path="firstNameContact" id="idFirstNameContact" placeholder="${firstname}"/>
+				
+			</div>
+			
+			<div>
+				<img class ="picto" src="resources/images/blank.png" />
+				<spring:message code="listContact.secondName" var="secondname"/>
+				<form:input required="required" class = "inputmodify" type = "text"  path="secondNameContact" id="idSecondNameContact" placeholder="${secondname}"/>
+			</div>
+			
+			<div>
+				<img class ="picto" src="resources/images/birth.png" />
+				<spring:message code="listContact.dateBirth" var="dateBirth"/>
+				<form:input required="required" class = "inputmodify" type = "text"  path="dateBirthContact" id="idDateBirthContact" placeholder="${dateBirth}"/>
+			</div>	
+					
+			<div>
+				<img class ="picto" src="resources/images/mail.png" />
+				<spring:message code="listContact.mail" var="mail"/>
+				<form:input required="required" class = "inputmodify" type = "email" path="mailContact" id="idMailContact" placeholder="${mail}"/>
+			</div>
+			
+			<div>
+				<label class="labelmodify" for="activeContact"><spring:message code="listContact.active"/> </label>
+				<form:checkbox id="idActiveContactAdd" path="activeContact" />
+			</div>
+
+			<div style="margin-top:13px;">
+				<input type="submit" class="buttonmodify" name="rechercher" id="rechercher" value="<spring:message code="contact.save" />" /> 
+				<input type="reset" class="cancel"name="reset" id="reset" value="<spring:message code="contact.cancel" />" class="reset" onclick="javascript:doGet('${resetURL}')" />
+			</div>
+
+	</form:form>
+	
+	
 </div>

@@ -20,14 +20,15 @@
 	</br>
 	</br>
 	</br>
-	</br>
-	</br>
-	</br>
 	<form:form method="POST"  class="cssform_colonnes_new_width" action="${deleteAdressURL}">
-			
+		
 		<div class="aligner_centre">
-			<input type="submit" class="submit" name="delete" id="idDelete" value="<spring:message code="contact.delete"/>"  /> 
-			<input type="reset" name="reset" id="reset" value="<spring:message code="contact.cancel" />" class="reset" onclick="javascript:doGet('${resetURL}')" />	 
+			<p class="deleteText"><spring:message code="contact.delete"/> ?</p>
+			</br>
+			</br>
+			</br>
+			<input type="submit" class="deleteButton" name="delete" id="idDelete" value="<spring:message code="contact.delete"/>"  /> 
+			<input type="reset" class="cancel"name="reset" id="reset" value="<spring:message code="contact.cancel" />" class="reset" onclick="javascript:doGet('${resetURL}')" />	 
 		</div>
 	</form:form>	
 </div>
