@@ -3,39 +3,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
-<!-- 
-<form:form 	class="cssform_colonnes_new_width" >
-
-	<div class="colonne_gauche">
-	
-		<p>
-			<label for=firstNameContact><spring:message code="listContact.firstName"/></label>
-			${contactFormBean.firstNameContact}
-		</p>
-		<p>
-			<label for="secondNameContact"><spring:message code="listContact.secondName"/> </label>
-			${contactFormBean.secondNameContact}
-		</p>
-		<p>
-			<label for="dateBirthContact"><spring:message code="listContact.dateBirth"/> </label>
-			${contactFormBean.dateBirthContact}
-		</p>
-		<p>
-			<label for="mailContact"><spring:message code="listContact.mail"/> </label>
-			${contactFormBean.mailContact}
-		</p>
-		<p>
-			<label for="activeContact"><spring:message code="listContact.active"/> </label>
-			${contactFormBean.activeContact}
-		</p>
-	</div>
-
-	<div class="clear"></div>
-
-</form:form>
-
--->
-
+<script type="text/javascript">
+     $(document).ready(function () {
+     	$("#idLanguage").attr( "disabled", "disabled" );
+     });
+</script>
 <form>
 	<div class="readContact">
 		<img class ="picto" src="resources/images/name.png" style="width:25px; height:25px;" />
@@ -83,10 +55,18 @@
 				<td headers="entete_2">${adress.streetNameAdress}</td> 
 				<td headers="entete_3">${adress.codeAdess}</td>
 				<td headers="entete_4">${adress.cityAdress}</td>
-				<td headers="entete_5">${adress.shippingAdress}</td>
-				<td headers="entete_6">${adress.billingAdress}</td>
-				<td headers="entete_7" style="text-align: center;"><a href="/deleteAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:2Opx;"><span title="Supprimer le contact"></span></a></td>
-				<td headers="entete_8" style="text-align: center;"><a href="/changeAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:2Opx;"><span title="Modifier le contact"></span></a></td>
+				<td headers="entete_5">
+					<c:if test="${adress.shippingAdress}">
+						<img src="resources/images/check.png" style="width:17px; height:10px;">
+					</c:if>
+				</td>
+				<td headers="entete_6">
+					<c:if test="${adress.billingAdress}">
+						<img src="resources/images/check.png" style="width:17px; height:10px;">
+					</c:if>
+				</td>
+				<td headers="entete_7" style="text-align: center;"><a href="/deleteAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:20px;"><span title="Supprimer le contact"></span></a></td>
+				<td headers="entete_8" style="text-align: center;"><a href="/changeAdress?indexA=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:20px;"><span title="Modifier le contact"></span></a></td>
 			</tr>			
 		</c:forEach>
 	</tbody>

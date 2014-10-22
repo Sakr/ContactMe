@@ -46,6 +46,8 @@ html{
   -moz-background-size: cover; /* pour Firefox */
   -o-background-size: cover; /* pour Opera */
   background-size: cover; /* version standardis�e */
+    /*background-color: #85b9dd;*/
+
 }
 #global {
 	width: 100%;
@@ -186,14 +188,6 @@ html{
 	overflow: hidden;
 }
 
-
-
-
-
-
-
-
-
 /* ------------------------------- */ 
 /*           =  CONTENU            */
 /* ------------------------------- */ 
@@ -229,19 +223,19 @@ html{
   
 }
 
-
+/*
 #contenu_popin {
 	width: 450px;
 	float:left;
 	height: 450px;
-	padding: 0px 10px 10px 10px;
-	text-align: justify;
+	/*padding: 0px 10px 10px 10px;*/
+	/*text-align: center;
 	border-radius: 8px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	color: #363B29;
 	background: #ffffff;
-}
+}*/
 #contenu_onglets h1, #contenu_popin h1{
 	padding: 3px 0 3px 10px;
 	clear: right;
@@ -414,7 +408,7 @@ table tr.updated  input {
 table tr.total, table td.total {
 	text-align:right !important;
 	font-weight:bold !important;
-	color: #737373 !important;
+	color: #4B6E83 !important;
 }
 
 
@@ -424,12 +418,12 @@ table tr.bold{
 
 .total {
 	font-weight:bold !important;
-	color: #737373 !important;
+	color: #4B6E83 !important;
 }
 
 table td.entete {
 	font-weight:bold;
-	color: #737373;
+	color: #4B6E83;
 }
 table img {
 	margin: 0 3px;
@@ -1092,13 +1086,13 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 
 
  
-
+/*
 .cssform_colonnes_new_width p {
 	margin: 0 0 5px 0;
 	padding-left: 100px;
 	height: 1%;
 	overflow: hidden;
-}
+}*/
 .cssform_colonnes_new_width label, .label {
     /*display: block; si on veut mettre l'étiquette au-dessus du champ*/
 	float: left;
@@ -1190,6 +1184,22 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 
 /*TEEEST*/
 
+.readContact{
+	font-family : montserratregular;
+	font-size : 12px;
+	color : #4B6E83;
+	padding-left: 10px;
+	display:inline-block;
+	vertical-align: middle;
+	margin-bottom:6px;
+}
+
+.picto{
+	display:inline-block;
+	vertical-align: middle;
+	margin-right:10px;
+}
+
 .searchContact {
     width: 750px;
     height: 38px;
@@ -1277,12 +1287,19 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 
 
 /* Navigation*/
+
+.navigationDiv{
+	margin: 0 auto;
+	width : 1000px;
+	height : 30px;
+}
+/*
  #navigation {
 	clear: both;
 	list-style: none;
 	margin: 3px 0 3px 171.500px;
 	padding: 0;
-	overflow: hidden;		/* Création du contexte de formatage */
+	overflow: hidden;		
 	font-size: .9em;
 }
 
@@ -1297,7 +1314,6 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 
 #navigation a {
 	display: block;
-	/* line-height: 1.4em; */
 	padding: 5px 0;
 	text-align: center;
 	text-decoration: none;
@@ -1306,6 +1322,31 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 	-webkit-border-radius: 8px;
 	background: #FFFFFF;
 	color: #737373;
+}*/
+
+.imgBack{
+	float:left;
+	border-style : Solid;
+	border-color : #ffffff;
+	border-width : 1px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background: #FFFFFF;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	width:50px;
+	height:30px;
+	
+	background-image:url(../images/previous.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size: 35px 15px;
+	
+	 box-shadow : 1px 1px 10px rgba(0, 0, 0, 0.75);
+
 }
 
 #navigation a:hover, #navigation a:focus {
@@ -1313,4 +1354,299 @@ input:not(.dataTable input)[disabled="disabled"], input:not(.dataTable input)[re
 
 #navigation .focus {
 }
+
+/*PICTO ADD CONTACT
+
+#pictoAddContactFrame{
+	width:30px;
+	height:27px;
+	margin-bottom:10px; 
+	margin-left:20px;
+}
+
+#pictoAddContact{	
+	background-image:url(../images/add-contact.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size: 30px 27px;
+}*/
+
+/* ANIMATION */
+
+.backgroundAnim{ 
+  background-color: #85b9dd;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundButton{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.button{
+  
+  margin-bottom: 200px;
+
+  vertical-align: middle;
+}
+
+.button{
+  font-family : montserratregular;
+  font-size : 12px;
+  color : white;
+  
+  border: 1px solid white;
+  border-radius:6px;
+
+  outline: none;
+  
+  background : transparent;
+  width : 190px;
+  height : 50px;  
+}
+
+.button:hover{
+  color: #FFFFFF;
+  
+  border: 1px solid #22B573;
+  border-radius:6px;
+  border-radius:6px;
+  
+  outline: none;
+  
+  background : #22B573;
+  width : 190px;
+  height : 50px;  
+}
+
+.frame {
+  width: 500px;
+  height: auto;
+  margin: 15% auto 0;
+  position: absolute;
+  width: 100%;
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/**
+ * Paper Plane
+ */
+/*Paper Plane: Container*/
+.plane-container {
+  width: 200px;
+  margin: 0px auto;
+  z-index: 3;
+}
+ /*Paper Plane: Image*/
+.plane {
+  width: 100%;
+  height: 60px;
+}
+
+/*Paper Plane: Animation*/
+.plane-container {
+  -webkit-animation: paper-plane-scoping 2s alternate infinite;
+  -moz-animation: paper-plane-scoping 2s alternate infinite;
+  animation: paper-plane-scoping 2s alternate infinite;
+
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes paper-plane-scoping {
+  0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  100% {
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+.plane {
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+
+  -webkit-animation: paper-plane-soaring 4s forwards infinite;
+  -moz-animation: paper-plane-soaring 4s forwards infinite;
+  animation: paper-plane-soaring 4s forwards infinite;
+}
+@-webkit-keyframes paper-plane-soaring {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  40% {
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  50% {
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  60% {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+/**
+ * Clouds
+ */
+.clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  transform: translateZ(0);
+  height: 500px;
+}
+
+.cloud {
+  position: absolute;
+  top: 20%;
+  width: 300px;
+  right: 0;
+  opacity: 1;
+}
+
+.cloud.front {
+  z-index: 9;
+}
+
+.cloud.distant {
+  z-index: 1;
+}
+
+.cloud.background {
+  z-index: 1;
+}
+
+/*Cloud Sizing*/
+.cloud.smaller {
+  margin-right: 400px;
+  width: 100px;
+  margin-top: 50px;
+}
+
+.cloud.small {
+  margin-right: 200px;
+  width: 150px;
+}
+
+.cloud.big {
+  width: 500px;
+  margin-top: 50px;
+  margin-right: 150px;
+}
+
+.cloud.massive {
+  width: 600px;
+  margin-top: 20px;
+  margin-right: 0px;
+}
+
+
+/*Cloud: Animation*/
+.cloud {
+  -webkit-animation-name: cloud-movement;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 8s;
+
+  -moz-animation-name: cloud-movement;
+  -moz-animation-timing-function: linear;
+  -moz-animation-direction: forwards;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 8s;
+
+  animation-name: cloud-movement;
+  animation-timing-function: linear;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+}
+
+.slow {
+  -webkit-animation-duration: 9.2s;
+  -moz-animation-duration: 9.2s;
+  animation-duration: 9.2s;
+}
+
+.slower {
+  -webkit-animation-duration: 11.2s;
+  -moz-animation-duration: 11.2s;
+  animation-duration: 11.2s;
+}
+
+.slowest {
+  -webkit-animation-duration: 13.5s;
+  -moz-animation-duration: 13.5s;
+  animation-duration: 13.5s;
+}
+
+.super-slow {
+  -webkit-animation-duration: 20.5s;
+  -moz-animation-duration: 20.5s;
+  animation-duration: 20.5s;
+}
+
+@-webkit-keyframes cloud-movement {
+  0% {
+    opacity: 0.1;
+    -webkit-transform: translateX(300px);
+    -moz-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+  10% {
+
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-1000px);
+    -moz-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+  }
+}
+
+
+
+
 

@@ -16,7 +16,8 @@ body {
 	font-size: .8em; 
 	line-height: 1.25;
 	color: black;
-	background: white;
+	/*background: white;*/
+	background-color: #85b9dd;
 	
 
 }

@@ -1,21 +1,3 @@
 1;29;Rue Jean Bleuzen;92170;Vanves;1
 2;08;Rue Abou Oubayda Takafi;1057;Gammarth;1
 3;39;Rue Jean Bleuzen;92170;Vanves;2
-
-protected int getCurrentPage(HttpServletRequest request) {
-
-	int currentPage = 0;
-
-	if (WebUtils.hasSubmitParameter(request, _CURRENT_PAGE)) {
-		String page = request.getParameter(_CURRENT_PAGE);
-		currentPage = Integer.parseInt(page);
-	} else {
-		currentPage = super.getCurrentPage(request);
-	}
-
-	if (log.isDebugEnabled()) {
-		log.debug("currentPage = " + currentPage);
-	}
-
-	return currentPage;
-}

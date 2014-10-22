@@ -17,13 +17,14 @@ public class AdressManager implements AdressService{
 		this.dataStoreSingleton = dataStoreSingleton;
 	}
 	@Override
-	public void createAdress(AdressBean adressBean) {
+	public boolean createAdress(AdressBean adressBean) {
 		int idAdress=dataStoreSingleton.getAdressBeanMap().size();
 		adressBean.setIdAdress(idAdress);
 		//On insere l'adresse sur une map
 		dataStoreSingleton.getAdressBeanMap().put(idAdress, adressBean);
 		//Et on l'insere sur la map de l'utilisateur
 		dataStoreSingleton.getContactBeanMap().get(adressBean.getIdContactAdress()).getMapAdressBean().put(idAdress, adressBean);
+		return false;
 	}
 	@Override
 	public AdressBean readAdress(int idAdress) {

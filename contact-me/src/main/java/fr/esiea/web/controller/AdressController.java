@@ -1,7 +1,5 @@
 package fr.esiea.web.controller;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -23,7 +21,6 @@ import fr.esiea.web.bean.ContactBean;
 import fr.esiea.web.bean.ContactFormBean;
 import fr.esiea.web.model.DataStoreSingleton;
 import fr.esiea.web.service.impl.AdressManager;
-import fr.esiea.web.service.impl.ContactManager;
 
 @Controller
 @SessionAttributes({"adressFormBean","adressList","contactList","index","indexA","contactFormBean"})
@@ -41,9 +38,7 @@ public class AdressController {
 		
 		@ModelAttribute("index") int index) throws ServiceException, ParseException{
 		
-		
 		ModelAndView mav = new ModelAndView("viewDetails");
-		
 		adressManager=new AdressManager(DataStoreSingleton.getInstance());
 		//On recupere l'id du contact sur lequel on ajoute l'adresse
 		int idContact= listContactBean.get(index).getIdContact();
@@ -71,10 +66,9 @@ public class AdressController {
 	@RequestMapping("/popupAddAdress")
 	public ModelAndView addAdressPopup(ModelMap model,
 			@ModelAttribute("adressList") List<AdressBean> listAdressBean,
-			@ModelAttribute("contactFormBean") ContactFormBean contactFormBean,
-			@ModelAttribute("adressFormBean") AdressFormBean adressFormBean) throws ServiceException{
+			@ModelAttribute("contactFormBean") ContactFormBean contactFormBean) throws ServiceException{
 		ModelAndView mav = new ModelAndView("viewAddAdress");
-		
+		AdressFormBean adressFormBean = new AdressFormBean();
 		model.addAttribute("adressList", listAdressBean);
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("adressFormBean", adressFormBean);
@@ -140,7 +134,6 @@ public class AdressController {
 		model.addAttribute("adressList", listAdressBean);
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("adressFormBean", adressFormBean);
-		
 		model.addAttribute("indexA", indexA);
 		mav.addObject(model);
 		return mav;
@@ -157,7 +150,6 @@ public class AdressController {
 		model.addAttribute("adressList", listAdressBean);
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("adressFormBean", adressFormBean);
-		
 		model.addAttribute("indexA", indexA);
 		mav.addObject(model);
 		return mav;
@@ -170,11 +162,10 @@ public class AdressController {
 			@ModelAttribute("contactFormBean") ContactFormBean contactFormBean,
 			@ModelAttribute("adressFormBean") AdressFormBean adressFormBean,
 			@ModelAttribute("indexA") int indexA) throws ServiceException{
-		ModelAndView mav = new ModelAndView("viewDetails");
 		
+		ModelAndView mav = new ModelAndView("viewDetails");
 		adressManager=new AdressManager(DataStoreSingleton.getInstance());
 		adressManager.deleteAdress(listAdressBean.get(indexA));
-		
 		//
 		int idContact= listAdressBean.get(indexA).getIdContactAdress();
 		adressManager=new AdressManager(DataStoreSingleton.getInstance());
@@ -182,7 +173,6 @@ public class AdressController {
 		//On charge laliste des adresses du contact
 		adressManager=new AdressManager(DataStoreSingleton.getInstance());
 		listAdressBean=adressManager.findAllById(idContact);
-		
 		model.addAttribute("adressList", listAdressBean);
 		model.addAttribute("contactFormBean", contactFormBean);
 		model.addAttribute("adressFormBean", adressFormBean);
@@ -195,8 +185,6 @@ public class AdressController {
 	public ModelAndView resetDeleteAdress(ModelMap model) throws ServiceException{
 		
 		ModelAndView mav = new ModelAndView("viewDetails");
-		
-
 		mav.addObject(model);
 		return mav;
 	}
@@ -204,8 +192,6 @@ public class AdressController {
 	public ModelAndView resetAdressChanges(ModelMap model) throws ServiceException{
 		
 		ModelAndView mav = new ModelAndView("viewDetails");
-		
-
 		mav.addObject(model);
 		return mav;
 	}
@@ -213,8 +199,6 @@ public class AdressController {
 	public ModelAndView resetAdressAdd(ModelMap model) throws ServiceException{
 		
 		ModelAndView mav = new ModelAndView("viewDetails");
-		
-
 		mav.addObject(model);
 		return mav;
 	}

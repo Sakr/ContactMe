@@ -30,8 +30,6 @@ public class IndexController {
 	private ContactManager contactManager;
 	@RequestMapping("/startIndex")
 	public ModelAndView start(ModelMap model) throws ServiceException{
-		//viewContactList
-		
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}

@@ -2,17 +2,9 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<!-- URL For search Block -->
+<!-- URL For search -->
 <c:url value="/search" var="searchURL" />
 <c:url value="/reset" var="resetURL" />
-
-<!-- URL For add Block -->
-<c:url value="/addContact" var="addURL" />
-
-<!-- URL For contact action -->
-<c:url value="/remove" var="removeURL" />
-<c:url value="/change" var="changeURL" />
-<c:url value="/consult" var="consultURL" />
 
 <form:form method="POST" commandName="contactFormBean" class="searchContact" action="${searchURL}">
 
@@ -39,49 +31,14 @@
 
 		
 
-<h2 class="acc_trigger acc_trigger_0">
+<!--  <h2 class="acc_trigger acc_trigger_0">
 	<a href="#"><spring:message code="contact.add.title" /></a>
 </h2>
 <div class="acc_container">
-	<div class="block">
-		<form:form method="POST" commandName="contactFormBean" class="cssform_colonnes_new_width" action="${addURL}">
-			<div class="colonne_gauche">
-				<p>
-					<label for=firstNameContact><spring:message code="listContact.firstName"/></label>
-					<form:input path="firstNameContact" id="idFirstNameContactAdd"></form:input>
-				</p>
-				<p>
-					<label for="secondNameContact"><spring:message code="listContact.secondName"/> </label>
-					<form:input path="secondNameContact" id="idSecondNameContactAdd" />
-				</p>
-				<p>
-					<label for="dateBirthContact"><spring:message code="listContact.dateBirth"/> </label>
-					<form:input path="dateBirthContact" id="idDateBirthContactAdd" class="w16em dateformat-d-sl-m-sl-Y show-weeks no-animation opacity-99 disable-drag"
-						maxlength="10" onchange="javascript:isDate(this.value)"/>
-				</p>
-			</div>
+</div>-->
 
-			<div class="colonne_droite">
-				<p>
-					<label for="mailContact"><spring:message code="listContact.mail"/> </label>
-					<form:input path="mailContact" id="idMailContactAdd" />
-				</p>
-				<p>
-					<label for="activeContact"><spring:message code="listContact.active"/> </label>
-					<form:checkbox id="idActiveContactAdd" path="activeContact" />
-				</p>
-			</div>
+<a href="/popupAddContact" class="lien iframe" id="pictoAddContact"><img src="resources/images/add-contact.png" style="width:30px; height: 27px; margin-bottom:10px; margin-left:20px;"></a>
 
-			<div class="clear"></div>
-
-			<div class="right">
-				<input type="submit" class="submit" name="add" id="idAdd" value="<spring:message code="contact.add"/>"  /> 
-				<input type="reset" name="cancelAdd" id="idCancelAdd" class="reset" value="<spring:message code="contact.cancel"/>"/>
-					 
-			</div>
-		</form:form>
-	</div>
-</div>
 
 <div class="clear"></div>
 
@@ -93,23 +50,12 @@
 			<th id="entete_3"><spring:message code="listContact.dateBirth"/></th>
 			<th id="entete_4"><spring:message code="listContact.mail"/></th>
 			<th id="entete_5"><spring:message code="listContact.active"/></th>
-			<th id="entete_6"><spring:message code="listContact.remove"/></th>
-			<th id="entete_7"><spring:message code="listContact.change"/></th>
-			<th id="entete_8"><spring:message code="listContact.consult"/></th>
+			<th id="entete_6"><!--spring:message code="listContact.remove"/--></th>
+			<th id="entete_7"><!--spring:message code="listContact.change"/--></th>
+			<th id="entete_8"><!--spring:message code="listContact.consult"/--></th>
 		</tr>
 	</thead>
-	<tfoot>
-		<tr>
-			<th id="entete_1"><spring:message code="listContact.firstName"/></th>
-			<th id="entete_2"><spring:message code="listContact.secondName"/></th> 
-			<th id="entete_3"><spring:message code="listContact.dateBirth"/></th>
-			<th id="entete_4"><spring:message code="listContact.mail"/></th>
-			<th id="entete_5"><spring:message code="listContact.active"/></th>
-			<th id="entete_6"><spring:message code="listContact.remove"/></th>
-			<th id="entete_7"><spring:message code="listContact.change"/></th>
-			<th id="entete_8"><spring:message code="listContact.consult"/></th>
-		</tr>
-	</tfoot>
+	
 	<tbody>
 		<c:forEach items="${contactList}" var="contact"  varStatus="status">
 			<tr>
@@ -118,9 +64,9 @@
 				<td headers="entete_3">${contact.dateBirthContact}</td>
 				<td headers="entete_4">${contact.mailContact}</td>
 				<td headers="entete_5">${contact.activeContact}</td>
-				<td headers="entete_6" style="text-align: center;"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/trash-icon.png"></a></td>
-				<td headers="entete_7" style="text-align: center;"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/picture-settings-icon.png"></a></td>
-				<td headers="entete_8" style="text-align: center;"><a href="/consult?index=${status.index}" ><img src="resources/images/Search-icon.png"></a></td>
+				<td headers="entete_6"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:20px;"></a></td>
+				<td headers="entete_7"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:20px;"></a></td>
+				<td headers="entete_8"><a href="/consult?index=${status.index}" ><img src="resources/images/read.png" style="width:20px; height:20px;"></a></td>
 			</tr>			
 		</c:forEach>
 		

@@ -10,6 +10,7 @@ import fr.esiea.web.bean.AdressBean;
 import fr.esiea.web.bean.ContactBean;
 import fr.esiea.web.model.DataStoreSingleton;
 import fr.esiea.web.service.ContactService;
+import fr.esiea.web.utils.ObjectComparator;
 
 
 /**
@@ -26,11 +27,28 @@ public class ContactManager implements ContactService{
 		this.dataStoreSingleton = dataStoreSingleton;
 	}
 	@Override
-	public void createContact(ContactBean contactBean) {
+	public boolean createContact(ContactBean contactBean) {
 		int idContact=dataStoreSingleton.getAdressBeanMap().size();
 		contactBean.setIdContact(idContact);
-		contactBean.setMapAdressBean(new HashMap<Integer,AdressBean>());
-		dataStoreSingleton.getContactBeanMap().put(idContact, contactBean);
+		
+		boolean returnValue=true;
+		ObjectComparator objectComparator=new ObjectComparator();
+		Map<Integer,ContactBean>contactMap=dataStoreSingleton.getContactBeanMap();
+		for (Integer mapKey : contactMap.keySet()) {
+			if(objectComparator.compare(contactBean, contactMap.get(mapKey))==0){
+				returnValue=false;
+				continue;
+			}
+		}
+		
+		//On ecrit si le contact n'existe pas
+		if(returnValue){
+			contactBean.setMapAdressBean(new HashMap<Integer,AdressBean>());
+			dataStoreSingleton.getContactBeanMap().put(idContact, contactBean);
+		}
+		
+		
+		return returnValue;
 	}
 
 	@Override
@@ -61,7 +79,11 @@ public class ContactManager implements ContactService{
 		}
 		return listContactBean;
 	}
-	
+	/**
+	 * Les criteres sont disponibles en parametres à l'entrée de cette méthode
+	 * Ils seront à utiliser lorsqu'on ajoute une base de donnée à l'application
+	 * L'utilisation de SQL facilitera l'implementation d'une recherche plus fine c'est pour cela nous nous restreignions a la recherche par nom ou prenom 
+	 */
 	@Override
 	public List<ContactBean> findByCriteria(String firstName, String lastName, Date dateOfBirth, String mailContact,Boolean actif) {
 		
@@ -95,6 +117,4 @@ public class ContactManager implements ContactService{
 		return listContactBean;
 		
 	}
-	
-	
 }

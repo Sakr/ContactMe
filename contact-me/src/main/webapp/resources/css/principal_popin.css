@@ -1,17 +1,19 @@
-/** CSS special popin */
-
+/* ==============================================
+   FEUILLE DE STYLES SPECIAL POP UP
+   ============================================== */
+   
 body {
 	padding: 0px 0px;
 	background: #ffffff;
 }
 
-/**** Menu de sous_navigation ****/
-
 #sous_navigation {
     display: none;
 }
 
-/**** Contenu ****/
+/* ------------------------------- */ 
+/*           =  CONTENU            */
+/* ------------------------------- */ 
 
 #contenu {
 	width: 940px;
@@ -21,12 +23,19 @@ body {
 	width: 936px;
 }
 
-/*POPIN*/
+/* ------------------------------- */ 
+/*           =  FORMULAIRES        */
+/* ------------------------------- */ 
+
+#bottomButton{
+	margin-left: 60px;
+	display: inline-block
+}
 
 .deleteText{
 	font-family : montserratregular;
 	font-size : 14px;
-	textalign: center;
+	text-align: center;
 	color: #4B6E83;
 }
 .deleteButton {

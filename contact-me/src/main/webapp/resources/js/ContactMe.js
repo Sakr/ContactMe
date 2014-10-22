@@ -39,6 +39,11 @@ function hideTable() {
 	oTable.fnDestroy();
 }
 
+function doGet(url) {
+	parent.$.fancybox.close();
+	window.location.href = url;
+}
+
 /**
  * Gestion des accordeons
  */
@@ -408,10 +413,6 @@ function goToUrl(url) {
 	document.forms[0].submit();
 }
 
-function doGet(url) {
-	window.location.href = url;
-}
- 
 /**
  * Gestion des popins
  */

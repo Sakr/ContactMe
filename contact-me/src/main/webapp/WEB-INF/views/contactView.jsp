@@ -2,9 +2,20 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<script type="text/javascript">
+     $(document).ready(function () {
+     	$("#idLanguage").removeAttr( "disabled", "disabled" );
+     });
+</script>
 <!-- URL For search -->
 <c:url value="/search" var="searchURL" />
 <c:url value="/reset" var="resetURL" />
+
+<!-- Gestion des doublons -->
+<c:if test="${not empty doublon }">
+	<div ><spring:message code="contact.doublon" /></div>
+</c:if>
+
 
 <form:form method="POST" commandName="contactFormBean" class="searchContact" action="${searchURL}">
 
@@ -16,9 +27,9 @@
 			<label for="secondNameContact"></label>
 			<form:input class ="inputSearch" path="secondNameContact" id="idSecondNameContact" placeholder="${secondname}"/>
 			
-			<spring:message code="listContact.mail" var="mail"/>
-			<label for="mailContact"></label>
-			<form:input class ="inputSearch" path="mailContact" type="email" id="mail" placeholder="${mail}"/>
+<%-- 			<spring:message code="listContact.mail" var="mail"/> --%>
+<!-- 			<label for="mailContact"></label> -->
+<%-- 			<form:input class ="inputSearch" path="mailContact" type="email" id="mail" placeholder="${mail}"/> --%>
 
 		<input type="submit" class="buttonSearch" name="rechercher" id="rechercher" value="" />
 		<a href="${resetURL}" class="cancelSearch"
@@ -27,9 +38,6 @@
 		</a>
 
 </form:form>
-
-
-		
 
 <!--  <h2 class="acc_trigger acc_trigger_0">
 	<a href="#"><spring:message code="contact.add.title" /></a>
@@ -63,10 +71,20 @@
 				<td headers="entete_2">${contact.secondNameContact}</td> 
 				<td headers="entete_3">${contact.dateBirthContact}</td>
 				<td headers="entete_4">${contact.mailContact}</td>
-				<td headers="entete_5">${contact.activeContact}</td>
-				<td headers="entete_6"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:2Opx;"></a></td>
-				<td headers="entete_7"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:2Opx;"></a></td>
-				<td headers="entete_8"><a href="/consult?index=${status.index}" ><img src="resources/images/read.png" style="width:20px; height:2Opx;"></a></td>
+				<td headers="entete_5">
+				
+					<c:choose>
+						<c:when test="${contact.activeContact }">
+							<img src="resources/images/true.png" style="width:15px; height:15px;">
+						</c:when>
+						<c:otherwise>
+							<img src="resources/images/false.png" style="width:15px; height:15px;">
+						</c:otherwise>
+					</c:choose>
+				</td>
+				<td headers="entete_6"><a href="/delete?index=${status.index}" class="lien iframe"><img src="resources/images/delete.png" style="width:20px; height:20px;"></a></td>
+				<td headers="entete_7"><a href="/change?index=${status.index}" class="lien iframe"><img src="resources/images/update.png" style="width:20px; height:20px;"></a></td>
+				<td headers="entete_8"><a href="/consult?index=${status.index}" ><img src="resources/images/read.png" style="width:20px; height:20px;" title="<spring:message code="listContact.consult"/>"></a></td>
 			</tr>			
 		</c:forEach>
 		

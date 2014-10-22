@@ -27,7 +27,7 @@ import fr.esiea.web.service.impl.AdressManager;
 import fr.esiea.web.service.impl.ContactManager;
 
 @Controller
-@SessionAttributes({"contactFormBean","adressFormBean","contactList","index","adressList"})
+@SessionAttributes({"contactFormBean","adressFormBean","contactList","index","adressList","doublon"})
 public class ContactController {
 	
 	private ContactManager contactManager;
@@ -85,7 +85,7 @@ public class ContactController {
 	@RequestMapping("/addContact")
 	public ModelAndView addContact(ModelMap model,
 		@ModelAttribute("contactFormBean") ContactFormBean contactFormBean) throws ServiceException, ParseException{
-		ModelAndView mav = new ModelAndView("viewContactList");
+		ModelAndView mav = new ModelAndView("viewContactList"); ;
 		contactManager=new ContactManager(DataStoreSingleton.getInstance());
 		
 		ContactBean contactBean=new ContactBean();
@@ -94,7 +94,11 @@ public class ContactController {
 		contactBean.setDateBirthContact( new SimpleDateFormat("dd/MM/yyyy").parse(contactFormBean.getDateBirthContact()));
 		contactBean.setMailContact(contactFormBean.getMailContact());
 		contactBean.setActiveContact(contactBean.getActiveContact());
-		contactManager.createContact(contactBean);
+		
+		
+		if(!contactManager.createContact(contactBean)){
+			model.addAttribute("doublon", contactManager.createContact(contactBean));
+		}
 		List<ContactBean> listContactBean=contactManager.findAll();
 			
 		model.addAttribute("contactList", listContactBean);
@@ -263,4 +267,65 @@ public class ContactController {
 		mav.addObject(model);
 		return mav;
 	}
+	
+//	@RequestMapping(value = "/getContactData", method = RequestMethod.GET)
+//	public void getData(ModelMap model,
+//			@ModelAttribute("contactList") List<ContactBean> listContactBean,
+//			HttpServletRequest request,
+//			HttpServletResponse response) throws JSONException, IOException {
+//		
+//	
+//		String contextPath = request.getContextPath();
+//		
+//		JSONObject result = new JSONObject();
+//	    JSONArray arrayTable = new JSONArray();
+//
+//	    int contactIndex = 0;
+//	    for(ContactBean contactBean : listContactBean) {
+//	    	JSONArray arrayLine = new JSONArray();
+//	    	
+//	    	String linkurl =null;
+//	    	String libelle =null;
+//	    	String title =null;
+//	    	String classes=null;
+//	    	String link =null;
+//	    	
+//	    	arrayLine.put("");
+//	    	    
+//	    	linkurl = contextPath+"";
+//	    	libelle = "";
+//	    	title = "";
+//	    	classes = "lien iframe";
+//		    	
+//	    	link = FillTableElementWithJSON.generateLink(linkurl, libelle, title, classes);
+//	    	arrayLine.put(link);
+//	    	arrayLine.put("");
+// 	    	arrayLine.put("");
+// 	    	arrayLine.put("");
+// 	    	arrayLine.put("");
+// 	    	arrayLine.put("");
+// 	    	arrayLine.put("");
+//    		// Ajout de la ligne au tableau
+//	    	arrayTable.put(arrayLine);
+//
+//	    	contactIndex++;
+//	    }
+//
+//
+//	    
+//	    result.put("aaData", arrayTable);
+//
+//    	response.setCharacterEncoding("ISO-8859-1");
+//    	response.setContentType("application/json;charset=ISO-8859-1");
+//    	
+//    	OutputStream os = response.getOutputStream();
+//    	os.write(result.toString().getBytes());
+//
+//		if (os != null) {
+//			os.flush();
+//			os.close();
+//		}
+//		
+//	}
+	
 }
