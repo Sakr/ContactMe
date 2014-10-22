@@ -2,9 +2,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-
+<!-- 
 <a href="<c:url value="/start" />" class = "logo">
-</a>
+</a> -->
+
+<img class ="logo" src="resources/images/ContactMe_Logo_header.png" />
+
+
 <div class="langueSelection">
 	<p class="langue">
 		<label><spring:message code="home.langue"/></label>

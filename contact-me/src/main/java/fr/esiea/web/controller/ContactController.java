@@ -123,6 +123,7 @@ public class ContactController {
 		@RequestParam(value = "index", required = true) int index) throws ServiceException{
 		//viewContactList
 		ModelAndView mav = new ModelAndView("viewDelete");
+
 		model.addAttribute("index", index);
 		mav.addObject(model);
 		return mav;
@@ -139,7 +140,7 @@ public class ContactController {
 		listContactBean=contactManager.findAll();
 		
 		model.addAttribute("contactList", listContactBean);
-		
+		model.addAttribute("doublon", "");
 		model.addAttribute("contactFormBean", contactFormBean);
 		mav.addObject(model);
 		return mav;
@@ -161,7 +162,7 @@ public class ContactController {
 	public ModelAndView change(ModelMap model,
 		@RequestParam(value = "index", required = true) int index,
 		@ModelAttribute("contactList") List<ContactBean> listContactBean) throws ServiceException{
-		
+		model.addAttribute("doublon", "");
 		ModelAndView mav = new ModelAndView("viewChange");
 		
 		ContactFormBean contactFormBean=new ContactFormBean();
@@ -190,7 +191,7 @@ public class ContactController {
 		@RequestParam(value = "index", required = true) int index,
 		@ModelAttribute("contactList") List<ContactBean> listContactBean) throws ServiceException{
 		
-		
+		model.addAttribute("doublon", "");
 		ModelAndView mav = new ModelAndView("viewDetails");
 		ContactFormBean contactFormBean=new ContactFormBean();
 		contactManager=new ContactManager(DataStoreSingleton.getInstance());

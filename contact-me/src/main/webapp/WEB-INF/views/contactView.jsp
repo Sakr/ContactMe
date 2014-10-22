@@ -12,8 +12,8 @@
 <c:url value="/reset" var="resetURL" />
 
 <!-- Gestion des doublons -->
-<c:if test="${not empty doublon }">
-	<div ><spring:message code="contact.doublon" /></div>
+<c:if test="${not empty doublon}">
+	<div class="errorMessage" ><spring:message code="contact.doublon" /></div>
 </c:if>
 
 
@@ -55,7 +55,7 @@
 		<tr>
 			<th id="entete_1"><spring:message code="listContact.firstName"/></th>
 			<th id="entete_2"><spring:message code="listContact.secondName"/></th> 
-			<th id="entete_3"><spring:message code="listContact.dateBirth"/></th>
+			<th id="entete_3"><spring:message code="listContact.dateTitle"/></th>
 			<th id="entete_4"><spring:message code="listContact.mail"/></th>
 			<th id="entete_5"><spring:message code="listContact.active"/></th>
 			<th id="entete_6"><!--spring:message code="listContact.remove"/--></th>
