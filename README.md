@@ -1,10 +1,10 @@
 Contact Me
 =========
 
-Informations techniques
+Technical information
 ---------
 
-Pré requis 
+Prerequisites
 
   - Eclipse Luna Service Release 1 (4.4.1) 
   - jdk1.7.0_67
@@ -15,18 +15,21 @@ Pré requis
   - Navigateur web: Chrome de préférence 
   - Illustrator CC
 
-Technologies utilisés
+Technologies used
 
   - Java / JSP 
   - Spring MVC 3.1.1
-  - Apache Tiles
+  - Apache Tiles for managing templates and views
   - HTML5 / CSS3
   - Appengine api 1.0 sdk 1.9.9
+  - Spring MVC Internationalization with messages.properties files
+  - Java singletons to simulate a database
 
 Compilation
 
   - mvn clean install
 
-Déploiement sur Google app engine
+Google app engine deployment
 
   - appengine:update 
+
