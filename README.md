@@ -1,6 +1,6 @@
 Contact Me
 =========
-Project
+Projet
 ---------
 
 L'objectif de ce projet est de concevoir et de développer l'IHM d'une
